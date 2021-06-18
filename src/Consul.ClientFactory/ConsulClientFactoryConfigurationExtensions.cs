@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 
 namespace Consul.ClientFactory
@@ -8,8 +9,8 @@ namespace Consul.ClientFactory
         public static IServiceCollection AddConsulClient(this IServiceCollection services, Action<ConsulClientConfiguration> options)
         {
             services.Configure(options);
-            services.AddTransient<IConsulClientFactory, ConsulClientFactory>();
-            services.AddTransient(provider =>
+            services.TryAddTransient<IConsulClientFactory, ConsulClientFactory>();
+            services.TryAddTransient(provider =>
             {
                 var factory = provider.GetService<IConsulClientFactory>();
                 var client = factory.Create();
@@ -22,7 +23,7 @@ namespace Consul.ClientFactory
         public static IServiceCollection AddConsulClient(this IServiceCollection services, string name, Action<ConsulClientConfiguration> options)
         {
             services.Configure(name, options);
-            services.AddTransient<IConsulClientFactory, ConsulClientFactory>();
+            services.TryAddTransient<IConsulClientFactory, ConsulClientFactory>();
 
             return services;
         }
