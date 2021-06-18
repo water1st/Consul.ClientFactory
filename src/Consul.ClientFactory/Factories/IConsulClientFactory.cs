@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Consul.ClientFactory
+﻿namespace Consul.ClientFactory
 {
     public interface IConsulClientFactory
     {
