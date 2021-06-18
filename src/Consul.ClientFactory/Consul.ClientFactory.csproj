@@ -1,7 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Authors>water_1st</Authors>
+    <PackageProjectUrl>https://github.com/water1st/Consul.ClientFactory</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,5 +14,18 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Consul.HostService\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+
+	<None Include="..\..\..\Consul.HostService\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath></PackagePath>
+	 </None>
+  </ItemGroup>
+
 
 </Project>
