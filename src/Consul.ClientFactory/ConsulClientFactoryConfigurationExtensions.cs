@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Consul;
+using Consul.ClientFactory;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 
-namespace Consul.ClientFactory
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ConsulClientFactoryConfigurationExtensions
     {
